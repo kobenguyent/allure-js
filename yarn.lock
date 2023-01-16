@@ -2086,7 +2086,7 @@ __metadata:
     chai: ^4.2.0
     chai-arrays: ^2.2.0
     codecov: ^3.6.5
-    fs-jetpack: ^4.1.0
+    fs-jetpack: ^5.0.0
     glob: ^8.0.0
     mocha: ^9.1.3
     mocha-multi-reporters: ^1.5.1
@@ -2110,7 +2110,7 @@ __metadata:
     chai: ^4.2.0
     codecov: ^3.6.5
     dotenv: ^10.0.0
-    fs-jetpack: ^4.1.0
+    fs-jetpack: ^5.0.0
     glob: ^7.1.7
     hermione: ^6.0.2
     mocha: ^9.1.3
@@ -2210,7 +2210,7 @@ __metadata:
     allure-js-commons: "workspace:*"
     chai: ^4.2.0
     codecov: ^3.6.5
-    fs-jetpack: ^4.1.0
+    fs-jetpack: ^5.0.0
     glob: ^8.0.0
     mocha: ^9.1.3
     mocha-multi-reporters: ^1.5.1
@@ -5761,13 +5761,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-jetpack@npm:^4.1.0":
-  version: 4.1.1
-  resolution: "fs-jetpack@npm:4.1.1"
+"fs-jetpack@npm:^5.0.0":
+  version: 5.1.0
+  resolution: "fs-jetpack@npm:5.1.0"
   dependencies:
-    minimatch: ^3.0.2
-    rimraf: ^2.6.3
-  checksum: f30045b4604aeb449fd0dc0856671cb8c2bcf5ecc46239f5c03e3f493f47160e94e93352ab4676a01fa0ba75d20302d0bed4d78d62c10efd6bae396181271938
+    minimatch: ^5.1.0
+  checksum: a30fc7884ded99619b981f16bf096d93693d36c53dab87f1d8339d63f6c9c89c45981c47ddd4d08f4045c3181cc843ee2a83ed4834683eb8cb96665332f89b36
   languageName: node
   linkType: hard
 
@@ -11130,17 +11129,6 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
-  languageName: node
-  linkType: hard
-
-"rimraf@npm:^2.6.3":
-  version: 2.7.1
-  resolution: "rimraf@npm:2.7.1"
-  dependencies:
-    glob: ^7.1.3
-  bin:
-    rimraf: ./bin.js
-  checksum: cdc7f6eacb17927f2a075117a823e1c5951792c6498ebcce81ca8203454a811d4cf8900314154d3259bb8f0b42ab17f67396a8694a54cae3283326e57ad250cd
   languageName: node
   linkType: hard
 
