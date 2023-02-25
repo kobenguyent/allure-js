@@ -57,6 +57,10 @@ export interface AllureCommandStep<T = MetadataMessage> {
     content: Buffer | string,
     options: ContentType | string,
   ): void | Promise<void>;
+
+  description(content: string): void | Promise<void>;
+
+  descriptionHtml(content: string): void | Promise<void>;
 }
 
 export class AllureCommandStepExecutable implements AllureCommandStep {
@@ -198,6 +202,14 @@ export class AllureCommandStepExecutable implements AllureCommandStep {
     });
   }
 
+  description(content: string): void {
+    this.metadata.description = content;
+  }
+
+  descriptionHtml(content: string): void {
+    this.metadata.descriptionHtml = content;
+  }
+
   async step(name: string, body: StepBodyFunction): Promise<void> {
     if (!this.metadata.steps) {
       this.metadata.steps = [];
@@ -220,8 +232,10 @@ export class AllureCommandStepExecutable implements AllureCommandStep {
 
       await res;
 
+      const { steps = [], description = "", descriptionHtml = "", ...metadata } = this.metadata;
+
       return {
-        ...this.metadata,
+        ...metadata,
         steps: [
           {
             name: this.name,
@@ -232,15 +246,17 @@ export class AllureCommandStepExecutable implements AllureCommandStep {
             statusDetails: {},
             attachments: this.attachments,
             parameters: [],
-            description: this.metadata.description || "",
-            descriptionHtml: this.metadata.descriptionHtml || "",
-            steps: this.metadata.steps || [],
+            steps,
+            description,
+            descriptionHtml,
           },
         ],
       };
     } catch (err) {
+      const { steps = [], description = "", descriptionHtml = "", ...metadata } = this.metadata;
+
       return {
-        ...this.metadata,
+        ...metadata,
         steps: [
           {
             name: this.name,
@@ -256,10 +272,10 @@ export class AllureCommandStepExecutable implements AllureCommandStep {
                   }
                 : {},
             attachments: this.attachments,
-            description: this.metadata.description || "",
-            descriptionHtml: this.metadata.descriptionHtml || "",
             parameters: [],
-            steps: this.metadata.steps || [],
+            steps,
+            description,
+            descriptionHtml,
           },
         ],
       };
